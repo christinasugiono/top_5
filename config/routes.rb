@@ -3,6 +3,18 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :boards, except: [:destroy] do
+    resources :contributions, only: [:index, :new, :create]
+    resources :board_hashtags, only: [:create]
+  end
+
+  resources :board_hashtags, only: [:destroy]
+
+  resources :contributions, only: [:show, :edit, :update] do
+    resources :points, only: [:create]
+  end
+
+  resources :points, only: [:destroy]
+
+  resources :hashtags, only: [:show, :create]
 end
