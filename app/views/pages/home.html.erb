@@ -12,7 +12,9 @@
     </div>
   <% end %>
   <p>Or search by categories:</p>
-  <% @hashtags.each do |hashtag| %>
-    <%= render 'shared/card_category', hashtag: hashtag %>
-  <% end %>
+  <div class="w-full flex justify-between">
+    <% @hashtags.each do |hashtag| %>
+      <%= render 'shared/card_category', hashtag: hashtag %>
+    <% end %>
+  </div>
 </div>
