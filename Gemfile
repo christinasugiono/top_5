@@ -76,3 +76,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'cssbundling-rails'
+
+gem "tailwindcss-rails", "~> 2.0"
