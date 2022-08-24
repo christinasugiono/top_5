@@ -1,0 +1,21 @@
+.card-category {
+  padding: 24px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $gray;
+  background-color: $white;
+
+  img {
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+  }
+
+  h3 {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+}

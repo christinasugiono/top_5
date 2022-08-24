@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container home-page">
+  <h1>Top 5 lists created and currated <br> by the community</h1>
+  <h3>Discover, bookmark and contribute in hundreds <br> of categories and top 5 lists</h3>
+  <%= form_tag boards_path, method: :get, class:"w-3/5" do %>
+    <div class="search-bar">
+      <%= text_field_tag :query,
+        params[:query],
+        placeholder: "Top 5 _______",
+        class: "w-full border-none px-3"
+      %>
+      <button class="button-secondary"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  <% end %>
+  <p>Or search by categories:</p>
+  <% @hashtags.each do |hashtag| %>
+    <%= render 'shared/card_category', hashtag: hashtag %>
+  <% end %>
+</div>
