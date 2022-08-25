@@ -1,0 +1,17 @@
+<div class="container mt-6 text-center">
+  <h2 class="mb-10">Your search for <br><strong>Top 5 <%= @query %></strong></h2>
+  <div class="cards-2 mb-10">
+    <% @boards.each do |board| %>
+      <%= render 'top_card', board: board %>
+    <% end %>
+  </div>
+
+  <h2 class="mt-32">Explore more categories...</h2>
+  <div class="cards-category hide-scrollbar my-10">
+    <% @hashtags.each do |hashtag| %>
+      <%= link_to boards_path(hashtag: hashtag.title), class:"text-decoration-none text-black me-4" do  %>
+        <%= render 'shared/card_category', hashtag: hashtag %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
