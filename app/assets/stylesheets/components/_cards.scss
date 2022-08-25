@@ -19,3 +19,36 @@
     margin-bottom: 0;
   }
 }
+
+.cards-category {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+
+.cards-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.top-card {
+  border: 3px solid $light-primary-color;
+  padding: 24px;
+
+  .drop-shadow {
+    background-color: $light-primary-color;
+    box-shadow: 0px 18px 0px $white inset, 0px 4px 0px $light-primary-color;
+  }
+
+  .fa-plus {
+    color: $primary;
+  }
+}
+
+.contribution {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,26 @@
+<div class="top-card">
+  <h3><span class="drop-shadow">Top 5 </span><%= board.title %></h3>
+  <div class="top-card-contributions my-2">
+    <% board.contributions.each_with_index do |contribution, index| %>
+      <div class="contribution">
+        <h3><%= index + 1 %></h3>
+        <p class="text-left"><%= contribution.name %></p>
+        <div class="vote">
+          <i class="fa-solid fa-plus text-purple"></i>
+          <p><%= contribution.points.count %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="flex justify-between align-middle">
+    <div class="text-opacity-80">
+      <% board.hashtags.each do |hashtag| %>
+        #<%= hashtag.title %>
+      <% end %>
+    </div>
+    <div>
+      <span class="me-1">See More</span>
+      <button class="button-secondary button-small"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+</div>

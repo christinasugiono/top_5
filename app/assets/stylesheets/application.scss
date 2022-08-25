@@ -29,3 +29,7 @@ p {
   font-size: 16px;
   margin-bottom: 8px;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

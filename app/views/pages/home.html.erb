@@ -14,7 +14,9 @@
   <p>Or search by categories:</p>
   <div class="w-full flex justify-between">
     <% @hashtags.each do |hashtag| %>
-      <%= render 'shared/card_category', hashtag: hashtag %>
+      <%= link_to boards_path(hashtag: hashtag.title), class:"text-decoration-none text-black" do  %>
+        <%= render 'shared/card_category', hashtag: hashtag %>
+      <% end %>
     <% end %>
   </div>
 </div>
