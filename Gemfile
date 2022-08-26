@@ -80,3 +80,4 @@ end
 gem 'cssbundling-rails'
 
 gem "tailwindcss-rails", "~> 2.0"
+gem "pg_search"
