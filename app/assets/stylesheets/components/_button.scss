@@ -1,17 +1,20 @@
 .button-primary {
+  text-decoration: none;
   background-color: $primary;
   border: 2px solid $black;
   color: $white;
   box-shadow: -4px 4px 0px $primary, -3px 3px 0px $white inset;
-  padding: 8px 20px;
+  padding: 8px 60px;
   transition: all .2s ease-in-out;
 
   &:hover {
-    box-shadow: 0px 0px 0px $primary;
+    box-shadow: none;
+    color: $white;
   }
 }
 
 .button-secondary {
+  text-decoration: none;
   background-color: $black;
   color: $white;
   box-shadow: -4px 4px 0px $primary;
@@ -19,20 +22,22 @@
   transition: all .2s ease-in-out;
 
   &:hover {
-    box-shadow: 0px 0px 0px $primary;
+    box-shadow: none;
+    color: $white;
   }
 }
 
 .button-ghost {
+  text-decoration: none;
   background-color: $white;
   border: 2px solid $black;
   color: $black;
-  // box-shadow: -4px 4px 0px $primary;
   padding: 8px 20px;
   transition: all .2s ease-in-out;
 
   &:hover {
-    box-shadow: 0px 0px 0px $primary;
+    background-color: $primary;
+    color: $white;
   }
 }
 

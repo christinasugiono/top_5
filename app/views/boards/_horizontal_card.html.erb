@@ -1,0 +1,19 @@
+<div class="horizontal-card">
+  <div class="card-votes">
+    <i class="fa-solid fa-plus text-purple"></i>
+    <p class="pt-2"><%= contribution.points.count %></p>
+  </div>
+  <div class="card-details">
+    <h3><%= index + 1 %> - <%= contribution.name %></h3>
+    <p><%= contribution.description %></p>
+  </div>
+  <div class="card-info">
+    <div class="flex items-center justify-end">
+      <%= image_tag 'user.png', alt: "user-top-5" %>
+      <p class="ms-2"><%= contribution.user.username %></p>
+    </div>
+    <div>
+      <i class="fa-solid fa-link"></i> <%= link_to "www.google.com", "www.google.com" %>
+    </div>
+  </div>
+</div>
