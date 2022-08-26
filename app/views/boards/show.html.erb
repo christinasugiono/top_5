@@ -1,0 +1,26 @@
+<div class="container mt-6 text-center">
+  <h2 class="mt-10">Top 5 <strong><%= @board.title %></strong></h2>
+  <p class="text-gray-500 mb-10">Created <%= @board.created_at.strftime("%d/%m/%Y") %></p>
+  <div class="w-3/5 flex justify-between mx-auto mb-10">
+    <p><strong><%= @board.contributions.pluck(:user_id).uniq.count %> contributors</strong></p>
+    <p><strong>xx times bookmarked</strong></p>
+    <p><strong><%= @board.contributions.count %> contributions</strong></p>
+  </div>
+
+  <div class="cards-horizontal mb-20">
+    <% @board.contributions.each_with_index do |contribution, index| %>
+      <%= render 'horizontal_card', contribution: contribution, index: index %>
+    <% end %>
+  </div>
+
+  <%= link_to "See more", '#', class:"button-primary button-wide" %>
+
+  <h2 class="mt-32">Explore more categories...</h2>
+  <div class="cards-category hide-scrollbar my-10">
+    <% @hashtags.each do |hashtag| %>
+      <%= link_to boards_path(hashtag: hashtag.title), class:"text-decoration-none text-black me-4" do  %>
+        <%= render 'shared/card_category', hashtag: hashtag %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

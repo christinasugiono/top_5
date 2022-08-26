@@ -11,4 +11,9 @@ class BoardsController < ApplicationController
       @boards = Board.all
     end
   end
+
+  def show
+    @hashtags = Hashtag.all
+    @board = Board.find(params[:id])
+  end
 end

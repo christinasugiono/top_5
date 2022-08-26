@@ -20,7 +20,9 @@
     </div>
     <div>
       <span class="me-1">See More</span>
-      <button class="button-secondary button-small"><i class="fa-solid fa-arrow-right"></i></button>
+      <%= link_to board_path(board), class:"button-secondary button-small" do  %>
+        <i class="fa-solid fa-arrow-right"></i>
+      <% end %>
     </div>
   </div>
 </div>
