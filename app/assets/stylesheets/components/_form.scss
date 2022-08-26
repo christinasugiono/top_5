@@ -3,4 +3,11 @@
   display: flex;
   border: 2px solid $gray;
   padding: 8px;
+
+  input {
+    &:focus {
+      // border-color: $action-color;
+      outline: none;
+    }
+  }
 }

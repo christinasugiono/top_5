@@ -2,6 +2,13 @@
   justify-content: space-between;
   background: white;
   border-bottom: 1px solid $gray;
+
+  .nav-link {
+    color: $gray;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,4 +17,18 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.karma-points {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 300;
+
+  img {
+    margin-right: 4px;
+    width: 12px;
+    height: 15px;
+  }
 }

@@ -37,5 +37,13 @@
 }
 
 .button-small {
-  padding: 4px 8px;
+  padding: 4px 12px;
+}
+
+.remove-shadow {
+  box-shadow: none;
+
+  &:hover {
+    scale: 1.1;
+  }
 }
