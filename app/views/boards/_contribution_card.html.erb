@@ -1,6 +1,8 @@
 <div class="horizontal-card">
   <div class="card-votes">
-    <i class="fa-solid fa-plus text-purple"></i>
+    <%= button_to contribution_points_path(contribution) do  %>
+      <i class="fa-solid fa-plus text-purple"></i>
+    <% end %>
     <p class="pt-2"><%= contribution.points.count %></p>
   </div>
   <div class="card-details">
