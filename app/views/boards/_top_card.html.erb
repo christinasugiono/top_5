@@ -6,7 +6,9 @@
         <h3><%= index + 1 %></h3>
         <p class="text-left"><%= contribution.name %></p>
         <div class="vote">
-          <i class="fa-solid fa-plus text-purple"></i>
+          <%= button_to contribution_points_path(contribution) do  %>
+            <i class="fa-solid fa-plus text-purple"></i>
+          <% end %>
           <p><%= contribution.points.count %></p>
         </div>
       </div>
@@ -20,7 +22,7 @@
     </div>
     <div>
       <span class="me-1">See More</span>
-      <%= link_to board_path(board), class:"button-secondary button-small" do  %>
+      <%= link_to board_path(board), remote: true, class:"button-secondary button-small" do  %>
         <i class="fa-solid fa-arrow-right"></i>
       <% end %>
     </div>
