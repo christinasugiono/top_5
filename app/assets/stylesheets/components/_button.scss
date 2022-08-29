@@ -9,6 +9,8 @@
 
   &:hover {
     box-shadow: none;
+    border: 2px solid $black;
+    background-color: $primary;
     color: $white;
   }
 }

@@ -1,0 +1,3 @@
+<%= turbo_stream.update dom_id(@contribution, "points") do %>
+  <p class="pt-2"><%= @contribution.points.count %></p>
+<% end %>

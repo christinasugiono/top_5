@@ -1,0 +1,13 @@
+<div class="container mt-6">
+  <%= turbo_frame_tag "new_contribution" do %>
+    <div class="form-partial">
+      <h2 class="mb-10">Add a new contribution</h2>
+        <%= simple_form_for [@board, @contribution] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :url %>
+          <%= f.button :submit, class:"button-primary mt-2" %>
+        <% end %>
+    </div>
+  <% end %>
+</div>
