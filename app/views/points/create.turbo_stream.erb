@@ -1,3 +1,5 @@
-<%= turbo_stream.update dom_id(@contribution, "points") do %>
-  <p class="pt-2"><%= @contribution.points.count %></p>
+<%= turbo_stream.update dom_id(@board, "points") do %>
+  <% @contributions.each_with_index do |contribution, index| %>
+    <%= render 'boards/contribution_card', contribution: contribution, index: index %>
+  <% end %>
 <% end %>

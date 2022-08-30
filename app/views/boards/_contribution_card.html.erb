@@ -3,9 +3,9 @@
     <%= button_to contribution_points_path(contribution) do  %>
       <i class="fa-solid fa-plus text-purple"></i>
     <% end %>
-    <%= turbo_frame_tag dom_id(contribution, "points") do %>
+    <%#= turbo_frame_tag dom_id(contribution, "points") do %>
       <p class="pt-2"><%= contribution.points.count %></p>
-    <% end %>
+    <%# end %>
   </div>
   <div class="card-details">
     <h3><%= index + 1 %> - <%= contribution.name %></h3>

@@ -11,9 +11,11 @@
   </div>
 
   <div class="cards-horizontal mb-10">
-    <% @board.contributions.each_with_index do |contribution, index| %>
+  <%= turbo_frame_tag dom_id(@board, "points") do %>
+    <% @contributions.each_with_index do |contribution, index| %>
       <%= render 'contribution_card', contribution: contribution, index: index %>
     <% end %>
+  <% end %>
   </div>
 
   <%= turbo_frame_tag "new_contribution" do %>
