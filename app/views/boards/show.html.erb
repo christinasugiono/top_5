@@ -10,17 +10,22 @@
     <p><strong><%= @board.contributions.count %> contributions</strong></p>
   </div>
 
-  <div class="mb-10">
-    <%= link_to "+ add contribution", new_board_contribution_path(@board), class:"button-secondary" %>
-  </div>
-
-  <div class="cards-horizontal mb-20">
-    <% @board.contributions.each_with_index do |contribution, index| %>
+  <div class="cards-horizontal mb-10">
+  <%= turbo_frame_tag dom_id(@board, "points") do %>
+    <% @contributions.each_with_index do |contribution, index| %>
       <%= render 'contribution_card', contribution: contribution, index: index %>
     <% end %>
+  <% end %>
   </div>
 
-  <%= link_to "See more", '#', class:"button-primary button-wide" %>
+  <%= turbo_frame_tag "new_contribution" do %>
+    <div class="mb-32 text-right">
+        <%= link_to "+ add contribution", new_board_contribution_path(@board), class:"button-secondary" %>
+    </div>
+  <% end %>
+
+
+  <%= link_to "See more", '#', class:"button-primary button-wide mt-32" %>
 
   <h2 class="mt-32">Explore more categories...</h2>
   <div class="cards-category hide-scrollbar my-10">

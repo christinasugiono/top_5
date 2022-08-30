@@ -15,5 +15,6 @@ class BoardsController < ApplicationController
   def show
     @hashtags = Hashtag.all
     @board = Board.find(params[:id])
+    @contributions = @board.contributions.select('contributions.*, COUNT(points.id) AS points_count').left_joins(:points).group('contributions.id').order('points_count DESC').limit(5)
   end
 end
