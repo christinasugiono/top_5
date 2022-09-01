@@ -1,12 +1,10 @@
 .search-bar {
-  // flex border-2 border-solid border-black p-1
   display: flex;
   border: 2px solid $gray;
   padding: 8px;
 
   input {
     &:focus {
-      // border-color: $action-color;
       outline: none;
     }
   }
@@ -18,4 +16,9 @@
   width: 50%;
   padding: 24px;
   margin-bottom: 8rem;
+}
+
+.underline-placeholder::placeholder {
+  border-bottom: 1px solid gray;
+  width: 200px;
 }

@@ -6,9 +6,14 @@
   justify-content: center;
   align-items: center;
   background-color: $light-primary-color;
+  transition: .2s ease-in-out;
 
   h3 {
     margin: 0;
+  }
+
+  &:hover {
+    scale: 1.1;
   }
 }
 

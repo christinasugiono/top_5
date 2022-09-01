@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  get '/components', to: "pages#component"
+  # get '/components', to: "pages#component"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :boards, except: [:destroy] do

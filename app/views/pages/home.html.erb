@@ -3,20 +3,25 @@
   <h3>Discover, bookmark and contribute in hundreds <br> of categories and top 5 lists</h3>
   <%= form_tag boards_path, method: :get, class:"w-3/5" do %>
     <div class="search-bar">
+      <div class="flex align-items-center">
+        <p class="w-16 m-0">Top 5</p>
+      </div>
       <%= text_field_tag :query,
         params[:query],
-        placeholder: "Top 5 _______",
-        class: "w-full border-none px-3"
+        placeholder: "     ",
+        class: "w-full border-none pe-3 underline-placeholder"
       %>
       <button class="button-secondary"><i class="fa-solid fa-arrow-right"></i></button>
     </div>
   <% end %>
-  <p>Or search by categories:</p>
-  <div class="w-full flex justify-between">
-    <% @hashtags.each do |hashtag| %>
-      <%= link_to boards_path(hashtag: hashtag.title), class:"text-decoration-none text-black" do  %>
-        <%= render 'shared/card_category', hashtag: hashtag %>
+  <div class="w-full">
+    <p class="mb-10">Or search by categories:</p>
+    <div class="w-full flex justify-between">
+      <% @hashtags.each do |hashtag| %>
+        <%= link_to boards_path(hashtag: hashtag.title), class:"text-decoration-none text-black" do  %>
+          <%= render 'shared/card_category', hashtag: hashtag %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
