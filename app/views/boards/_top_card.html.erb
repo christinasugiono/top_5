@@ -1,7 +1,7 @@
 <div class="top-card">
   <h3><span class="top-card-shadow">Top 5 </span><%= board.title %></h3>
   <div class="top-card-contributions my-2">
-    <% board.contributions.each_with_index do |contribution, index| %>
+    <% board.contributions.select('contributions.*, COUNT(points.id) AS points_count').left_joins(:points).group('contributions.id').order('points_count DESC').limit(5).each_with_index do |contribution, index| %>
       <div class="contribution">
         <h3><%= index + 1 %></h3>
         <p class="text-left"><%= contribution.name %></p>
@@ -14,7 +14,7 @@
       </div>
     <% end %>
   </div>
-  <div class="flex justify-between align-middle">
+  <div class="flex justify-between align-items-center">
     <div class="text-opacity-80">
       <% board.hashtags.each do |hashtag| %>
         #<%= hashtag.title %>

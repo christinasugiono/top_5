@@ -1,5 +1,5 @@
 <div class="container mt-6 text-center">
-  <h2 class="mb-10">Your search for <br><strong>Top 5 <%= @query %></strong></h2>
+  <h2 class="mb-10">Your search for <br><strong><%= @query %> Top 5s</strong></h2>
   <div class="cards-2 mb-10">
     <% @boards.each do |board| %>
       <%= render 'top_card', board: board %>
