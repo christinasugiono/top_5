@@ -3,4 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :boards, dependent: :destroy
+  has_many :contributions, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+
+  def karma_points
+    contributions.extract_associated(:points).count
+  end
 end

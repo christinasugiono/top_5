@@ -8,4 +8,8 @@ class PagesController < ApplicationController
   def component
     @hashtag = Hashtag.first
   end
+
+  def profile
+    @my_boards = current_user.boards
+  end
 end
