@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "My profile", "#", class: "nav-link" %>
+            <%= link_to "My profile", profile_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "My bookmarks", "#", class: "nav-link" %>
@@ -49,7 +49,7 @@
 
     <div class="karma-points">
       <%= image_tag 'karma.png', alt: "karma-points" %>
-      <p class="m-0"><span class="font-bold">356</span> karma points</p>
+      <p class="m-0"><span class="font-bold"><%= current_user.karma_points %></span> karma points</p>
     </div>
   </div>
 </div>

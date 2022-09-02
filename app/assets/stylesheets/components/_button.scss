@@ -12,6 +12,7 @@
     border: 2px solid $black;
     background-color: $primary;
     color: $white;
+    cursor: pointer;
   }
 }
 
@@ -26,6 +27,7 @@
   &:hover {
     box-shadow: none;
     color: $white;
+    cursor: pointer;
   }
 }
 
