@@ -33,6 +33,24 @@
 .top-card {
   border: 3px solid $light-primary-color;
   padding: 24px;
+  position: relative;
+
+  h3 {
+    font-weight: 500;
+  }
+
+  .top-card-header {
+    min-height: 70px;
+    width: 75%;
+    margin: 24px auto;
+
+  }
+
+  .bookmark {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
 
   .top-card-shadow {
     background-color: $light-primary-color;
