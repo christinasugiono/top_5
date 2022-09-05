@@ -23,17 +23,18 @@
       </div>
     <% end %>
   </div>
-  <div class="flex justify-between align-items-center">
+  <div class="flex justify-between align-middle absolute bottom-7 left-7">
+
     <div class="text-opacity-80">
       <% board.hashtags.each do |hashtag| %>
         #<%= hashtag.title %>
       <% end %>
     </div>
-    <div>
+  </div>
+    <div class="absolute bottom-7 right-7">
       <span class="me-1">See More</span>
       <%= link_to board_path(board), remote: true, class:"button-secondary button-small" do  %>
         <i class="fa-solid fa-arrow-right"></i>
       <% end %>
     </div>
-  </div>
 </div>
