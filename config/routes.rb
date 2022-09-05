@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :boards, except: [:destroy] do
     resources :contributions, only: [:index, :new, :create]
     resources :board_hashtags, only: [:create]
+    post '/favourite', to: "boards#favourite"
+    delete '/unfavourite', to: "boards#unfavourite"
   end
 
   resources :board_hashtags, only: [:destroy]

@@ -1,10 +1,19 @@
 <div class="top-card">
-  <h3><span class="top-card-shadow">Top 5 </span><%= board.title %></h3>
+  <h3 class="top-card-header"><span class="top-card-shadow">Top 5 </span><%= board.title %></h3>
+  <% if current_user.favorited?(board) %>
+    <%= link_to board_unfavourite_path(board), data: {turbo_method: :delete}, class:"bookmark" do %>
+      <h3><i class="fa-solid fa-bookmark"></i></h3>
+    <% end %>
+  <% else %>
+    <%= link_to board_favourite_path(board), data: {turbo_method: :post}, class:"bookmark" do %>
+      <h3><i class="fa-regular fa-bookmark"></i></h3>
+    <% end %>
+  <% end %>
   <div class="top-card-contributions my-2">
     <% board.contributions.select('contributions.*, COUNT(points.id) AS points_count').left_joins(:points).group('contributions.id').order('points_count DESC').limit(5).each_with_index do |contribution, index| %>
       <div class="contribution">
         <h3><%= index + 1 %></h3>
-        <p class="text-left"><%= contribution.name %></p>
+        <p class="flex-grow text-left px-5"><%= contribution.name %></p>
         <div class="vote">
           <%= button_to contribution_points_path(contribution) do  %>
             <i class="fa-solid fa-plus text-purple"></i>
