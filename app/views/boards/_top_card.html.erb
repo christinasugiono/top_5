@@ -1,6 +1,6 @@
 <div class="top-card">
   <h3 class="top-card-header"><span class="top-card-shadow">Top 5 </span><%= board.title %></h3>
-  <% if current_user.favorited?(board) %>
+  <% if user_signed_in? && current_user.favorited?(board) %>
     <%= link_to board_unfavourite_path(board), data: {turbo_method: :delete}, class:"bookmark" do %>
       <h3><i class="fa-solid fa-bookmark"></i></h3>
     <% end %>
