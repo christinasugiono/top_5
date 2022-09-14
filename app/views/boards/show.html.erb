@@ -11,11 +11,9 @@
   </div>
 
   <div class="cards-horizontal mb-10">
-    <%= turbo_frame_tag dom_id(@board, "contributions") do %>
-      <%= turbo_frame_tag dom_id(@board, "points") do %>
-        <% @contributions.each_with_index do |contribution, index| %>
-          <%= render 'contribution_card', contribution: contribution, index: index %>
-        <% end %>
+    <%= turbo_frame_tag dom_id(@board, "points") do %>
+      <% @contributions.each_with_index do |contribution, index| %>
+        <%= render 'contribution_card', contribution: contribution, index: index %>
       <% end %>
     <% end %>
   </div>
@@ -26,7 +24,11 @@
     </div>
   <% end %>
 
-  <%= link_to "See more", board_contributions_path(@board), class:"button-primary button-wide mt-32" %>
+  <div class="apple_pagination">
+    <%= will_paginate @contributions %>
+  </div>
+
+  <%#= link_to "See more", board_contributions_path(@board), class:"button-primary button-wide mt-32" %>
 
   <h2 class="mt-32">Explore more categories...</h2>
   <div class="cards-category hide-scrollbar my-10">
@@ -37,4 +39,3 @@
     <% end %>
   </div>
 </div>
-<%= console %>
