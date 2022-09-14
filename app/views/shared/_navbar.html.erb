@@ -50,7 +50,11 @@
 
     <div class="karma-points">
       <%= image_tag 'karma.png', alt: "karma-points" %>
-      <p class="m-0"><span class="font-bold"><%= current_user.karma_points %></span> karma points</p>
+      <% if user_signed_in? %>
+        <p class="m-0"><span class="font-bold"><%= current_user.karma_points %></span> karma points</p>
+      <% else %>
+        <p class="m-0">karma points</p>
+      <% end %>
     </div>
   </div>
 </div>

@@ -6,6 +6,10 @@
     <% end %>
   </div>
 
+  <div class="apple_pagination">
+    <%= will_paginate @boards %>
+  </div>
+
   <h2 class="mt-32">Explore more categories...</h2>
   <div class="cards-category hide-scrollbar my-10">
     <% @hashtags.each do |hashtag| %>
