@@ -18,18 +18,4 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @contributions = @board.contributions.select('contributions.*, COUNT(points.id) AS points_count').left_joins(:points).group('contributions.id').order('points_count DESC').paginate(page: params[:page], per_page: 5)
   end
-
-  def favourite
-    @board = Board.find(params[:board_id])
-    current_user.favourite(@board)
-    flash[:notice] = "Added to favourite"
-    redirect_to boards_path
-  end
-
-  def unfavourite
-    @board = Board.find(params[:board_id])
-    current_user.unfavourite(@board)
-    flash[:notice] = "Removed from favourite"
-    redirect_to boards_path
-  end
 end

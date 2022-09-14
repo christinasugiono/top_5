@@ -3,7 +3,7 @@ class Board < ApplicationRecord
   has_many :board_hashtags
   has_many :hashtags, through: :board_hashtags
   has_many :contributions
-  acts_as_favoritable
+  has_many :bookmarks
 
   validates :title, :description, presence: true
 
