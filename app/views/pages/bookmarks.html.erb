@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="text-center w-100 m-10">
+    <h1>Your bookmarks</h1>
+  </div>
+  <div class="cards-2 mb-10">
+    <% @my_bookmarks.each do |bookmark| %>
+      <%= render 'boards/top_card', board: bookmark.board %>
+    <% end %>
+  </div>
+</div>

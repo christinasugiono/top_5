@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  acts_as_favoritor
   has_many :boards, dependent: :destroy
   has_many :contributions, dependent: :destroy
   has_many :bookmarks, dependent: :destroy

@@ -12,4 +12,8 @@ class PagesController < ApplicationController
   def profile
     @my_boards = current_user.boards
   end
+
+  def bookmarks
+    @my_bookmarks = current_user.bookmarks
+  end
 end

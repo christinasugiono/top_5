@@ -3,16 +3,17 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get '/components', to: "pages#component"
   get '/profile', to: "pages#profile"
+  get '/bookmarks', to: "pages#bookmarks"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :boards, except: [:destroy] do
     resources :contributions, only: [:index, :new, :create]
     resources :board_hashtags, only: [:create]
-    post '/favourite', to: "boards#favourite"
-    delete '/unfavourite', to: "boards#unfavourite"
+    resources :bookmarks, only: [:create]
   end
 
+  resources :bookmarks, only: [:destroy]
   resources :board_hashtags, only: [:destroy]
 
   resources :contributions, only: [:show, :edit, :update] do
