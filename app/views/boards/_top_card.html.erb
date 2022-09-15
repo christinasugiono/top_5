@@ -16,7 +16,7 @@
         <p class="flex-grow text-left px-5"><%= contribution.name %></p>
         <div class="vote">
           <%= button_to contribution_points_path(contribution) do  %>
-            <i class="fa-solid fa-plus text-purple"></i>
+            <i class="fa-solid fa-plus"></i>
           <% end %>
           <p><%= contribution.points.count %></p>
         </div>
