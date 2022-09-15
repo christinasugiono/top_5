@@ -29,10 +29,12 @@
       <div class="button-secondary">Share profile</div>
     </div>
   </div>
- <div class="cards-2 mb-10">
-   <% @my_boards.each do |board| %>
+  <div class="cards-2 mb-10">
+    <% @my_boards.each do |board| %>
       <%= render 'boards/top_card', board: board %>
     <% end %>
   </div>
+  <div class="apple_pagination">
+    <%= will_paginate @my_boards %>
+  </div>
 </div>
-
