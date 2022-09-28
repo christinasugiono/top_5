@@ -153,3 +153,44 @@
 .apple_pagination a:hover, .apple_pagination a:focus {
   text-decoration: underline;
 }
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 575px) {
+  .cards-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-2 {
+    grid-template-columns: 1fr;
+  }
+  .horizontal-card {
+    padding: 24px 36px;
+    margin-bottom: 24px;
+    border: 1px solid $gray;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
