@@ -1,13 +1,14 @@
 class BoardsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
     @hashtags = Hashtag.all
-    if params[:query]
+    if (params[:query] && params[:query] != "")
       @boards = Board.global_search(params[:query])
     elsif params[:hashtag]
       @query = "##{params[:hashtag]}"
       @boards = Board.all.select { |board| board.hashtags.include? Hashtag.find_by_title(params[:hashtag]) }
     else
-      @query = "everything"
       @boards = Board.all
     end
   end

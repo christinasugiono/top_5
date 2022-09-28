@@ -1,0 +1,7 @@
+<%= turbo_stream.update dom_id(@board, "contributions") do %>
+  <%= turbo_frame_tag dom_id(@board, "points") do %>
+    <% @contributions.each_with_index do |contribution, index| %>
+      <%= render 'boards/contribution_card', contribution: contribution, index: index %>
+    <% end %>
+  <% end %>
+<% end %>
