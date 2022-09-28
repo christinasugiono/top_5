@@ -33,3 +33,26 @@ p {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  h1 {
+    font-size: 47px;
+  }
+
+  h2 {
+    font-size: 29px;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
