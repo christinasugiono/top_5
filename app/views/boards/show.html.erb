@@ -6,7 +6,7 @@
   <p class="text-gray-500 mb-10">Created <%= @board.created_at.strftime("%d/%m/%Y") %></p>
   <div class="w-3/5 flex justify-between mx-auto mb-10">
     <p><strong><%= @board.contributions.pluck(:user_id).uniq.count %> contributors</strong></p>
-    <p><strong>xx times bookmarked</strong></p>
+    <p><strong><%= pluralize(Bookmark.where(board: @board).count, "time") %> bookmarked</strong></p>
     <p><strong><%= @board.contributions.count %> contributions</strong></p>
   </div>
 
@@ -20,7 +20,7 @@
 
   <%= turbo_frame_tag "new_contribution" do %>
     <div class="mb-32 text-right">
-        <%= link_to "+ add contribution", new_board_contribution_path(@board), class:"button-secondary" %>
+      <%= link_to "+ add contribution", new_board_contribution_path(@board), class:"button-secondary" %>
     </div>
   <% end %>
 
