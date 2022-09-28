@@ -47,7 +47,7 @@
         </div>
       <% end %>
     </div>
-
+    <% if user_signed_in? %>
     <div class="karma-points">
       <%= image_tag 'karma.png', alt: "karma-points" %>
       <% if user_signed_in? %>
@@ -56,5 +56,6 @@
         <p class="m-0">karma points</p>
       <% end %>
     </div>
+    <% end %>
   </div>
 </div>
