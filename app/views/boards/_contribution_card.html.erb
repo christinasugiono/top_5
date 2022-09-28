@@ -6,7 +6,7 @@
     <p class="pt-2"><%= contribution.points.count %></p>
   </div>
   <div class="card-details">
-    <h3><%= index + 1 + ((params[:page].to_i - 1) * 5) %> - <%= contribution.name %></h3>
+    <h3><%= index + 1 + (params[:page] ? ((params[:page].to_i - 1) * 5) : 0) %> - <%= contribution.name %></h3>
     <p><%= contribution.description %></p>
   </div>
   <div class="card-info">
