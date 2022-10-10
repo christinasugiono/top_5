@@ -1,5 +1,8 @@
 <div class="container mt-6 text-center">
   <h2 class="mb-10">Your search for <br><strong><%= @query %> Top 5s</strong></h2>
+  <div class="text-end mb-4">
+    <%= link_to "+ Add new board", new_board_path, class:"button-primary" %>
+  </div>
   <div class="cards-2 mb-10">
     <% @boards.each do |board| %>
       <%= render 'top_card', board: board %>

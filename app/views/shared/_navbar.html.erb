@@ -12,7 +12,6 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-
             <%= link_to "My profile", profile_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -38,13 +37,17 @@
     <div class="search">
       <%= form_tag boards_path, method: :get, class:"w-full" do %>
         <div class="search-bar p-1">
+          <div class="flex align-items-center">
+            <p class="w-14 m-0">Top 5</p>
+          </div>
           <%= text_field_tag :query,
             params[:query],
-            placeholder: "Top 5 _______",
-            class: "w-full border-none px-1"
+            placeholder: "     ",
+            class: "w-full border-none pe-3 underline-placeholder"
           %>
           <button class="button-primary remove-shadow button-small border-0"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
+
       <% end %>
     </div>
     <% if user_signed_in? %>
