@@ -9,9 +9,10 @@ puts "Destroying all data"
 
 Point.destroy_all
 Contribution.destroy_all
-Board.destroy_all
-Hashtag.destroy_all
 BoardHashtag.destroy_all
+Hashtag.destroy_all
+Bookmark.destroy_all
+Board.destroy_all
 User.destroy_all
 
 puts "Creating users"

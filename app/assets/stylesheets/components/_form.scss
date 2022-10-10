@@ -22,3 +22,30 @@
   border-bottom: 1px solid gray;
   width: 200px;
 }
+
+.selectize-input {
+  border: none;
+
+  input {
+    &:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.top-five-name {
+  position: relative;
+}
+
+.top-five-tag {
+  margin-bottom: 0px;
+  position: absolute;
+  bottom: 6px;
+  left: 12px;
+}
+
+.padding-left-60px {
+  padding-left: 60px;
+}

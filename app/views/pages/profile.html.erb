@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="text-center w-100 m-10">
+  <div class="text-center w-100 my-10">
     <h1><%= current_user.username %></h1>
     <ul class="flex justify-around mt-10">
       <li>
@@ -25,11 +25,13 @@
     </ul>
   </div>
 
-  <div>
+  <div class="my-10">
     <div class="flex w-50 m-auto justify-around pl-50 pr-50">
-      <div > <%= link_to "Modify profile", edit_user_registration_path, class:"button-primary" %> </div>
-<!--       <div class="button-secondary">Share profile</div>
- -->    </div>
+      <div >
+        <%= link_to "Modify profile", edit_user_registration_path, class:"button-primary" %>
+      </div>
+      <!--  <div class="button-secondary">Share profile</div>  -->
+    </div>
   </div>
   <div class="cards-2 mb-10">
     <% @my_boards.each do |board| %>

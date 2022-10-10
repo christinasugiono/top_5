@@ -6,6 +6,10 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "selectize";
+@import "selectize.default";
+@import 'selectize.bootstrap3';
+
 
 // Your CSS partials
 @import "components/index";
@@ -55,4 +59,3 @@ p {
     margin-bottom: 8px;
   }
 }
-
