@@ -1,9 +1,11 @@
 <div class="container mt-6 text-center">
-  <h2 class="mb-10">Your search for <br><strong><%= @query %> Top 5s</strong></h2>
-  <div class="text-end mb-4">
-    <%= link_to "+ Add new board", new_board_path, class:"button-primary" %>
+  <h2 class="margin-divider-bottom-small">Your search for <br><strong><%= @query %> Top 5s</strong></h2>
+  <div class="margin-divider-top-small margin-divider-bottom-small">
+    <div class="position-mid-end mb-4">
+      <%= link_to "+ Add new board", new_board_path, class:"button button-primary" %>
+    </div>
   </div>
-  <div class="cards-2 mb-10">
+  <div class="cards-2 margin-divider-bottom-small">
     <% @boards.each do |board| %>
       <%= render 'top_card', board: board %>
     <% end %>
@@ -13,12 +15,5 @@
     <%= will_paginate @boards %>
   </div>
 
-  <h2 class="mt-32">Explore more categories...</h2>
-  <div class="cards-category hide-scrollbar my-10">
-    <% @hashtags.each do |hashtag| %>
-      <%= link_to boards_path(hashtag: hashtag.title), class:"text-decoration-none text-black me-4" do  %>
-        <%= render 'shared/card_category', hashtag: hashtag %>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render "shared/explore_categories", hashtags: @hashtags %>
 </div>

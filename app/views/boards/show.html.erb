@@ -2,15 +2,15 @@
   <div class="text-left">
     <%= link_to "< Back", boards_path, class:"text-decoration-none text-black" %>
   </div>
-  <h2 class="mt-10">Top 5 <strong><%= @board.title %></strong></h2>
-  <p class="text-gray-500 mb-10">Created <%= @board.created_at.strftime("%d/%m/%Y") %></p>
-  <div class="w-3/5 flex justify-between mx-auto mb-10">
+  <h2 class="margin-divider-top-small">Top 5 <strong><%= @board.title %></strong></h2>
+  <p class="text-gray-500 margin-divider-bottom-small">Created <%= @board.created_at.strftime("%d/%m/%Y") %></p>
+  <div class="flex justify-between mx-auto margin-divider-bottom-small width-75-100">
     <p><strong><%= @board.contributions.pluck(:user_id).uniq.count %> contributors</strong></p>
     <p><strong><%= pluralize(Bookmark.where(board: @board).count, "time") %> bookmarked</strong></p>
     <p><strong><%= @board.contributions.count %> contributions</strong></p>
   </div>
 
-  <div class="cards-horizontal mb-10">
+  <div class="cards-horizontal margin-divider-bottom-small">
     <%= turbo_frame_tag dom_id(@board, "points") do %>
       <% @contributions.each_with_index do |contribution, index| %>
         <%= render 'contribution_card', contribution: contribution, index: index %>
@@ -19,8 +19,8 @@
   </div>
 
   <%= turbo_frame_tag "new_contribution" do %>
-    <div class="mb-32 text-right">
-      <%= link_to "+ add contribution", new_board_contribution_path(@board), class:"button-secondary" %>
+    <div class="margin-divider-bottom position-mid-end">
+      <%= link_to "+ add contribution", new_board_contribution_path(@board), class:"button button-secondary" %>
     </div>
   <% end %>
 
@@ -28,14 +28,7 @@
     <%= will_paginate @contributions %>
   </div>
 
-  <%#= link_to "See more", board_contributions_path(@board), class:"button-primary button-wide mt-32" %>
+  <%#= link_to "See more", board_contributions_path(@board), class:"button button-primary button-wide margin-divider-top" %>
 
-  <h2 class="mt-32">Explore more categories...</h2>
-  <div class="cards-category hide-scrollbar my-10">
-    <% @hashtags.each do |hashtag| %>
-      <%= link_to boards_path(hashtag: hashtag.title), class:"text-decoration-none text-black me-4" do  %>
-        <%= render 'shared/card_category', hashtag: hashtag %>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render "shared/explore_categories", hashtags: @hashtags %>
 </div>

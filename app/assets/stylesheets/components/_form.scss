@@ -1,3 +1,7 @@
+.search-form {
+  width: 75%;
+}
+
 .search-bar {
   display: flex;
   border: 2px solid $gray;
@@ -48,4 +52,17 @@
 
 .padding-left-60px {
   padding-left: 60px;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 575px) {
+  .search-form {
+    width: 100%;
+  }
+
+  .form-partial {
+    width: 100%;
+    // padding: 24px;
+    // margin-bottom: 8rem;
+  }
 }

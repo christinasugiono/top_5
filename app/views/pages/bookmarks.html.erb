@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="text-center w-100 my-10">
-    <h1>Your bookmarks</h1>
+  <div class="text-center w-100 margin-divider-top-small margin-devider-bottom-small">
+    <h2>Your bookmarks</h2>
   </div>
-  <div class="cards-2 mb-10">
+  <div class="cards-2 margin-divider-bottom-small">
     <% @my_bookmarks.each do |bookmark| %>
       <%= render 'boards/top_card', board: bookmark.board %>
     <% end %>
