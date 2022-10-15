@@ -32,3 +32,27 @@
     height: 15px;
   }
 }
+
+.navbar-brand {
+  width: 16%;
+}
+
+.navbar-items {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-items {
+  display: flex;
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-items {
+    padding-top: 12px;
+  }
+
+  .nav-items {
+    display: block;
+  }
+}

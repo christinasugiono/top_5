@@ -9,7 +9,7 @@
       </div>
       <%= f.input :description %>
       <%= f.input :hashtag_ids, collection: Hashtag.pluck(:title, :id), input_html: { multiple: true, class: "selectize", data: { controller: "selectize" } } %>
-      <%= f.button :submit, class:"button-primary px-0 w-full" %>
+      <%= f.button :submit, class:"button button-primary px-0 w-full" %>
     <% end %>
   </div>
 </div>
