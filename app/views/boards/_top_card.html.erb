@@ -2,7 +2,7 @@
   <h3 class="top-card-header"><span class="top-card-shadow">Top 5 </span><%= board.title %></h3>
   <% if user_signed_in? && (current_user.bookmarks.pluck(:board_id).include? (board.id)) %>
     <%= link_to bookmark_path(board.bookmarks.find_by_user_id(current_user.id)), data: {turbo_method: :delete}, class:"bookmark" do %>
-      <h3><i class="fa-solid fa-bookmark"></i></h3>
+      <h3 class="text-primary"><i class="fa-solid fa-bookmark"></i></h3>
     <% end %>
   <% else %>
     <%= link_to board_bookmarks_path(board), data: {turbo_method: :post}, class:"bookmark" do %>

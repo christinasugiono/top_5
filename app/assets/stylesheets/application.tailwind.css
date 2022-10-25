@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("./components/index.css");
+/* @import url("./components/index.css"); */
 
 
 @layer base {
@@ -116,7 +116,7 @@
     text-decoration: none;
     @apply border-2 border-black;
     padding: 8px 60px;
-    transition: all .2s ease-in-out;
+    transition: .2s ease-in-out;
   }
 
   .button:hover {
@@ -161,7 +161,7 @@
   }
 
   .remove-shadow:hover {
-    scale: 1.1;
+    @apply bg-black text-white;
   }
 
   .search-form {
@@ -218,8 +218,9 @@
 
   .navbar-lewagon {
     justify-content: space-between;
+    padding: 12px 0;
     background: white;
-    @apply border-b border-gray;
+    @apply border-b-2 border-gray;
   }
 
   .navbar-lewagon .nav-link {
@@ -263,6 +264,11 @@
 
   .nav-items {
     display: flex;
+    align-items: center;
+  }
+
+  .nav-items li {
+    padding: 0 8px;
   }
 
   .alert {
