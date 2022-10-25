@@ -431,8 +431,7 @@
 
   .apple_pagination .current {
     font-style: normal;
-    @apply bg-primary;
-    color: white;
+    @apply bg-primary text-white;
     display: inline-block;
     width: 1.4em;
     height: 1.4em;
