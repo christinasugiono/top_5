@@ -125,7 +125,7 @@ SimpleForm.setup do |config|
     b.use :html5
     b.optional :readonly
     b.use :label, class: 'form-label'
-    b.wrapper class: 'd-flex flex-row justify-content-between align-items-center' do |ba|
+    b.wrapper class: 'flex flex-row justify-content-between items-center' do |ba|
       ba.use :input, class: 'form-select mx-1', error_class: 'is-invalid', valid_class: 'is-valid'
     end
     b.use :full_error, wrap_with: { class: 'invalid-feedback d-block' }
@@ -235,7 +235,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label, class: 'col-sm-3 col-form-label'
     b.wrapper :grid_wrapper, class: 'col-sm-9' do |ba|
-      ba.wrapper class: 'd-flex flex-row justify-content-between align-items-center' do |bb|
+      ba.wrapper class: 'flex flex-row justify-content-between items-center' do |bb|
         bb.use :input, class: 'form-select mx-1', error_class: 'is-invalid', valid_class: 'is-valid'
       end
       ba.use :full_error, wrap_with: { class: 'invalid-feedback d-block' }
