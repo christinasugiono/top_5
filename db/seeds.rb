@@ -1,11 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-puts "Destroying all data"
+require "open-uri"
+require "nokogiri"
+require "faker"
 
 Point.destroy_all
 Contribution.destroy_all
@@ -20,7 +15,53 @@ christina = User.create!(username: "christina", email: "christina@gmail.com", pa
 daniel = User.create!(username: "daniel", email: "daniel@gmail.com", password: "123123")
 rayhan = User.create!(username: "rayhan", email: "rayhan@gmail.com", password: "123123")
 
+100.times do
+  username = Faker::Name.name.downcase.gsub(" ", "")
+  User.create!(username: username, email: "#{username}@gmail.com", password: "123123")
+end
+
 puts "#{User.count} users created"
+
+puts "Scraping thetoptens.com"
+url = 'https://www.thetoptens.com/lists/'
+html_file = URI.open(url).read
+html_doc = Nokogiri::HTML(html_file)
+
+# 1..17
+(1..17).each do |id|
+  html_doc.search("#catgrid > div:nth-child(#{id}) > a").each do |element|
+    category = element.text.strip
+    new_category = Hashtag.create(title: category.downcase)
+
+    category_url = element.attribute('href').value
+    category_file = URI.open(category_url).read
+    category_doc = Nokogiri::HTML(category_file)
+
+    puts "Opening #{category_url}"
+    category_doc.search(".listgrid > a").each do |element|
+      top_list = element.children[0..1].text.strip
+      top_list.gsub!("Top 10 ", "")
+      top_list.gsub!("Top ten ", "")
+      top_list.gsub!("Top Ten ", "")
+      user_board = User.all.sample
+      new_board = Board.create(title: top_list, description: "Top 5 #{top_list}", user: user_board)
+      BoardHashtag.create(board: new_board, hashtag: new_category)
+
+      top_list_url = element.attribute('href').value
+      top_list_file = URI.open(top_list_url).read
+      top_list_doc = Nokogiri::HTML(top_list_file)
+
+      puts "Scraping Top 5 #{top_list}"
+      top_list_doc.search("b").each do |element|
+        if element.text.strip != ""
+          user_contribution = [user_board, user_board, User.all.sample].sample
+          list = element.text.strip
+          Contribution.create(name: list, description: list, user: user_contribution, board: new_board)
+        end
+      end
+    end
+  end
+end
 
 puts "Creating Boards"
 travel = Board.create!(title: "safest place to travel", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.", user: christina)

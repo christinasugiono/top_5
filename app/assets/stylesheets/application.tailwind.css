@@ -104,6 +104,11 @@
 }
 
 @layer components {
+  .my-container {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
   #board_hashtag_ids-selectized {
     width: 100% !important;
   }
