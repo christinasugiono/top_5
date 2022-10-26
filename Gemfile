@@ -87,3 +87,4 @@ gem "pg_search"
 gem 'will_paginate', '~> 3.3'
 gem "selectize-rails"
 gem "font-awesome-sass", "~> 6.1"
+gem "faker"
