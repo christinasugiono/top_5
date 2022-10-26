@@ -4,6 +4,7 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*',
+    './config/initializers/simple_form_tailwind.rb'
   ],
   theme: {
     extend: {
@@ -15,4 +16,5 @@ module.exports = {
     },
   },
   plugins: [],
+  mode: "jit"
 }
