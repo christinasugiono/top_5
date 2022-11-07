@@ -82,9 +82,11 @@ end
 
 gem 'cssbundling-rails'
 
-# gem "tailwindcss-rails", "~> 2.0"
+gem "tailwindcss-rails"
 gem "pg_search"
 gem 'will_paginate', '~> 3.3'
 gem "selectize-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "faker"
+
+# gem "importmap-rails", "~> 1.1"

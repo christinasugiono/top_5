@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get '/components', to: "pages#component"
   get '/profile', to: "pages#profile"
-  get '/bookmarks', to: "pages#bookmarks"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

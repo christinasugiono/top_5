@@ -25,8 +25,11 @@
   </div>
   <div class="relative mt-4">
     <div class="hashtags absolute left-0 text-opacity-80">
-      <% board.hashtags.each do |hashtag| %>
+      <% board.hashtags.first(4).each do |hashtag| %>
         #<%= hashtag.title %>
+      <% end %>
+      <% if board.hashtags.count > 4 %>
+        ...
       <% end %>
     </div>
     <div class="absolute right-0">

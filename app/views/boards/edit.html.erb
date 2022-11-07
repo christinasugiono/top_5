@@ -1,0 +1,21 @@
+<div class="my-container mt-6 text-center">
+  <div class="flex justify-between">
+    <%= link_to "< Back", board_path(@board), class:"text-decoration-none text-black" %>
+    <% if user_signed_in? && @board.user == current_user %>
+      <%= link_to "Delete", edit_board_path(@board), class:"button button-secondary" %>
+    <% end %>
+  </div>
+  <h2>Edit the board</h2>
+  <div class="form-partial">
+    <%= simple_form_for @board do |f| %>
+      <%= f.label :title %>
+      <div class="top-five-name">
+        <p class="top-five-tag">Top 5</p>
+        <%= f.input :title, label: false, input_html: { class:"padding-left-60px underline-placeholder" }, placeholder: "               " %>
+      </div>
+      <%= f.input :description %>
+      <%= f.input :hashtag_ids, collection: Hashtag.pluck(:title, :id), input_html: { multiple: true, class: "selectize", data: { controller: "selectize" } } %>
+      <%= f.button :submit, class:"button button-primary px-0 w-full" %>
+    <% end %>
+  </div>
+</div>

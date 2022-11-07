@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
 
     if @bookmark.save!
       flash[:notice] = "Added to favourite"
-      redirect_to boards_path
+      # redirect_to boards_path
     end
   end
 
@@ -15,7 +15,7 @@ class BookmarksController < ApplicationController
 
     if @bookmark.destroy
       flash[:notice] = "Removed from favourite"
-      redirect_to boards_path
+      # redirect_to boards_path
     end
   end
 end
