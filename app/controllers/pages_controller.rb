@@ -11,9 +11,6 @@ class PagesController < ApplicationController
 
   def profile
     @my_boards = current_user.boards.paginate(page: params[:page], per_page: 6)
-  end
-
-  def bookmarks
     @my_bookmarks = current_user.bookmarks.paginate(page: params[:page], per_page: 6)
   end
 end

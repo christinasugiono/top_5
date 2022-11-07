@@ -4,9 +4,23 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*',
-    './config/initializers/simple_form_tailwind.rb'
+    './config/initializers/simple_form_tailwind.rb',
+    './node_modules/flowbite/**/*.js'
   ],
   theme: {
+    screens: {
+      'sm': '575px',
+      // => @media (max-width: 575px) { ... }
+
+      'md': '767px',
+      // => @media (max-width: 767px) { ... }
+
+      'lg': '992px',
+      // => @media (max-width: 992px) { ... }
+
+      'xl': '1279px',
+      // => @media (max-width: 1279px) { ... }
+    },
     extend: {
       colors: {
         'primary': '#8F00FF',
@@ -15,6 +29,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-  mode: "jit"
+  plugins: [
+    require('flowbite/plugin')
+  ]
 }

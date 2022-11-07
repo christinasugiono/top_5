@@ -2,13 +2,5 @@
   <div class="text-center w-100 margin-divider-top-small margin-devider-bottom-small">
     <h2>Your bookmarks</h2>
   </div>
-  <div class="cards-2 margin-divider-bottom-small">
-    <% @my_bookmarks.each do |bookmark| %>
-      <%= render 'boards/top_card', board: bookmark.board %>
-    <% end %>
-  </div>
 
-  <div class="apple_pagination">
-    <%= will_paginate @my_bookmarks %>
-  </div>
 </div>

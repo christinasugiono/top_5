@@ -1,7 +1,7 @@
 <div class="my-container">
-  <div class="text-center w-100 margin-divider-top-small margin-divider-bottom-small">
+  <div class="text-center mx-auto margin-divider-top-small margin-divider-bottom-small">
     <h2><%= current_user.username %></h2>
-    <ul class="flex justify-between mx-auto margin-divider-top-small">
+    <ul class="flex justify-around mx-auto margin-divider-top-small">
       <li>
         <div class="flex text-gray-500">
           <%= image_tag 'karma.png', alt: "karma-points", class: "h-5 mr-2" %>
@@ -14,7 +14,7 @@
         <p><%= current_user.boards.count %> list created</p>
       </li>
       <li class="text-gray-500">
-        <p><%= current_user.bookmarks.count %> bookmarks created</p>
+        <p><%= current_user.bookmarks.count %> list bookmarked</p>
       </li>
     </ul>
   </div>
@@ -25,12 +25,41 @@
       <!--  <div class="button button-secondary">Share profile</div>  -->
     </div>
   </div>
-  <div class="cards-2 margin-divider-bottom-small">
-    <% @my_boards.each do |board| %>
-      <%= render 'boards/top_card', board: board %>
-    <% end %>
+
+  <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+      <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+          <li class="mr-2" role="presentation">
+              <button class="inline-block p-4 rounded-t-lg text-blue-600 hover:text-blue-600 border-blue-600" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="<%= params[:tab] == 'bookmark' ? false : true %>">My boards</button>
+          </li>
+          <li class="mr-2" role="presentation">
+              <button class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 text-gray-500 border-gray-100" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="<%= params[:tab] == 'bookmark' ? true : false %>">Bookmarks</button>
+          </li>
+      </ul>
   </div>
-  <div class="apple_pagination">
-    <%= will_paginate @my_boards %>
+  <div id="myTabContent">
+      <div class="p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="cards-2 margin-divider-bottom-small">
+          <h3 class="mx-auto">You have <%= pluralize(@my_boards.count, 'board') %></h3>
+          <% @my_boards.each do |board| %>
+            <%= render 'boards/top_card', board: board %>
+          <% end %>
+        </div>
+
+        <div class="apple_pagination">
+          <%= will_paginate @my_boards %>
+        </div>
+      </div>
+      <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+        <div class="cards-2 margin-divider-bottom-small">
+          <h3 class="mx-auto">You have <%= pluralize(@my_bookmarks.count, 'bookmark') %></h3>
+          <% @my_bookmarks.each do |bookmark| %>
+            <%= render 'boards/top_card', board: bookmark.board %>
+          <% end %>
+        </div>
+
+        <div class="apple_pagination">
+          <%= will_paginate @my_bookmarks %>
+        </div>
+      </div>
   </div>
 </div>

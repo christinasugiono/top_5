@@ -1,6 +1,13 @@
 <div class="my-container mt-6 text-center">
-  <div class="text-left">
-    <%= link_to "< Back", boards_path, class:"text-decoration-none text-black" %>
+  <div class="flex justify-between">
+    <%# if request.referer.include? 'edit' %>
+      <%#= link_to "< Back", profile_path, class:"text-decoration-none text-black" %>
+    <%# else %>
+      <%= link_to "< Back", boards_path, class:"text-decoration-none text-black" %>
+    <%# end %>
+    <% if user_signed_in? && @board.user == current_user %>
+      <%= link_to "Edit", edit_board_path(@board), class:"button button-secondary" %>
+    <% end %>
   </div>
   <h2 class="margin-divider-top-small">Top 5 <strong><%= @board.title %></strong></h2>
   <p class="text-gray-500 margin-divider-bottom-small">Created <%= @board.created_at.strftime("%d/%m/%Y") %></p>

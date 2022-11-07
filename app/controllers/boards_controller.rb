@@ -26,14 +26,31 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
     @board.user = current_user
-    if @board.save!
+    if @board.save
       board_params[:hashtag_ids].reject{ |id| id == ""}.each do |hashtag_id|
-        BoardHashtag.create!(board: @board, hashtag_id: hashtag_id)
+        BoardHashtag.create(board: @board, hashtag_id: hashtag_id)
       end
       redirect_to board_path(@board)
     else
       render :new
     end
+  end
+
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    @board = Board.find(params[:id])
+    if @board.update(board_params)
+      board_params[:hashtag_ids].reject{ |id| id == ""}.each do |hashtag_id|
+        BoardHashtag.create(board: @board, hashtag_id: hashtag_id)
+      end
+      redirect_to board_path(@board)
+    else
+      render :edit
+    end
+
   end
 
   private
