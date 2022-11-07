@@ -9,4 +9,4 @@ require("selectize")
 import "@hotwired/turbo-rails";
 // import "bootstrap"
 import "./controllers";
-import 'flowbite/dist/flowbite.js';
+// import 'flowbite/dist/flowbite.js';
